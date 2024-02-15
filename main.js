@@ -10,6 +10,36 @@ fetch(url)
     console.log(data)
   })
 
+  let submitButton = document.getElementById("submitButton")
+  let Username = document.getElementById("Username")
+
+// Username.addEventListener("keydown",(e)=>{
+//   console.log(e.target.value);
+// })
+
+
+  submitButton.addEventListener("submit", async (ev)=>{
+    ev.preventDefault();
+    console.log("hej");
+    const rawResponse = await fetch('http://localhost:3000/api/chatuser',{
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          method:'POST',
+          credentials:'include',
+          body: JSON.stringify({Username: Username.value})                
+    })
+    if(rawResponse.status == 200){
+        const content = await rawResponse.json();
+        window.location.replace('index.html');
+    }else{
+        error.style.display = "block";
+    }
+
+})
+
+  
 
 
 

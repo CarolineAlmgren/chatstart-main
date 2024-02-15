@@ -36,23 +36,22 @@
               <a href="javascript:void(0);"><i class="fa fa-close"></i></a>       
             </div>      
           </div>
-          
           <div class="chat-messages">
             
             <div class="message-box-holder">
+              <form id="submitButton">
               <div class="message-sender">
                 <a href="#">Username</a>
                 <hr/>
-                <input class="chat-input"></input>
+                <input id="Username" class="chat-input"></input>
               </div>
               <div class="message-sender">
                 <a href="#">Password</a>
                 <hr/>
                 <input class="chat-input"></input>
               </div>
-              <div class="message-sender">
-                <input type="submit" value="Login" class="message-send pad" />
-              </div>
+                <button class="message-send pad">Login </button>
+              </form>
             </div>
           </div>
 
@@ -78,5 +77,6 @@
         
      </div>    
      </main>
+     <script src="main.js" type="module"></script>
 </body>
 </html>
