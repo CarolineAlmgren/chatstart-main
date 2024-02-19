@@ -12,6 +12,7 @@ fetch(url)
 
   let submitButton = document.getElementById("submitButton")
   let Username = document.getElementById("Username")
+  let password = document.getElementById("password")
 
 // Username.addEventListener("keydown",(e)=>{
 //   console.log(e.target.value);
@@ -28,7 +29,7 @@ fetch(url)
           },
           method:'POST',
           credentials:'include',
-          body: JSON.stringify({Username: Username.value})                
+          body: JSON.stringify({Username: Username.value,password:password.value})                
     })
     if(rawResponse.status == 200){
         const content = await rawResponse.json();
