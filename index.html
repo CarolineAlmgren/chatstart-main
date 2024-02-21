@@ -36,6 +36,7 @@
             </div>      
           </div>
           
+          
           <div class="chat-messages">
              <div class="message-box-holder">
               <div class="message-box">
@@ -94,9 +95,12 @@
             </div>      
           </div>
           
+          
           <div class="chat-input-holder">
-            <textarea class="chat-input"></textarea>
-            <input type="submit" value="Send" class="message-send" />
+            <form id="messageForm">
+            <input id="chatInput" class="chat-input"></input>
+            <button id="chatButton" type="submit" class="message-send">Send</button>
+          </form>
           </div>
           
           <div class="attachment-panel">
