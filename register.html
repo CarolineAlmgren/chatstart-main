@@ -38,26 +38,28 @@
           </div>
           
           <div class="chat-messages">
-            
             <div class="message-box-holder">
+              <form id="registrationForm">
               <div class="message-sender">
                 <a href="#">Username</a>
                 <hr/>
-                <input class="chat-input"></input>
+                <input id="registerUsername" class="chat-input"></input>
               </div>
               <div class="message-sender">
                 <a href="#">Password</a>
                 <hr/>
-                <input class="chat-input"></input>
+                <input id="registerPassword" class="chat-input"></input>
               </div>
               <div class="message-sender">
                 <a href="#">Password again</a>
                 <hr/>
-                <input class="chat-input"></input>
+                <input id="registerPasswordCheck" class="chat-input"></input>
               </div>
               <div class="message-sender">
-                <input type="submit" value="Register" class="message-send pad" />
+                <button type="submit" class="message-send pad">Register</button>
               </div>
+              <p id="errorMessage">Lösenordet matchar inte</p>
+              </form>
             </div>
           </div>
 
