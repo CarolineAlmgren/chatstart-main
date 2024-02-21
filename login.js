@@ -36,7 +36,7 @@ fetch(url)
           body: JSON.stringify({Username: Username.value,password:password.value})                
     })
     if(rawResponse.status == 200){
-        const content = await rawResponse.json();
+        //const content = await rawResponse.json();
         window.location.replace('index.html');
     }else{
         error.style.display = "block";
