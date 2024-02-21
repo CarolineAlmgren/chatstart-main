@@ -1,3 +1,5 @@
+
+
 let chatInput = document.getElementById("chatInput")
 let chatButton = document.getElementById("chatButton")
 let messageForm = document.getElementById("messageForm")
