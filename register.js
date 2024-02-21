@@ -27,7 +27,8 @@ registrationForm.addEventListener("submit", async (ev)=>{
       }
       else{
         errorMessage.style.display = "block";
-        errorMessage.innerHTML = "Något gick fel"
+        const content = await rawResponse.json();
+        errorMessage.innerHTML = content;
     }
   
     }
