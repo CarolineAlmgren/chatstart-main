@@ -19,8 +19,9 @@ messageForm.addEventListener("submit", async (ev)=>{
       console.log(theResponse);
       const content = await theResponse.json()
       console.log(content);
+      console.log(content.id);
       
-      const rawResponse = await fetch('http://localhost:3000//api/sendmessage',{
+      const rawResponse = await fetch('http://localhost:3000/api/sendmessage',{
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
