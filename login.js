@@ -1,14 +1,14 @@
 
 
 
-const url = "http://localhost:3000/api/messages";
+// const url = "http://localhost:3000/api/messages";
 
 
-fetch(url)
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data)
-  })
+// fetch(url)
+//   .then((response) => response.json())
+//   .then((data) => {
+//     console.log(data)
+//   })
 
   let submitButton = document.getElementById("submitButton")
   let Username = document.getElementById("Username")
