@@ -8,15 +8,17 @@ messageForm.addEventListener("submit", async (ev)=>{
     ev.preventDefault();
 
     const theResponse = await fetch('http://localhost:3000/hej',{
-        // headers: {
-        //     'Accept': 'application/json',
-        //     'Content-Type': 'application/json'
-        //   },
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
           method:'GET',
-        //   credentials:'include',
+          credentials:'include',
           //body: JSON.stringify({message:chatInput.value,})                
       })
+      console.log(theResponse);
       const content = await theResponse.json()
+      console.log(content);
       
       const rawResponse = await fetch('http://localhost:3000//api/sendmessage',{
         headers: {
