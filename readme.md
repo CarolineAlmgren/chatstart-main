@@ -1,5 +1,5 @@
 <!--Kajsa Söderlund
 Timmy Viinmäki
-Niklas Sören
+Niklas Sörén Högblom
 Caroline Almgren
 -->

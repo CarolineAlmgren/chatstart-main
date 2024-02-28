@@ -20,7 +20,7 @@ registrationForm.addEventListener("submit", async (ev)=>{
           credentials:'include',
           body: JSON.stringify({Username: registerUsername.value,password:registerPassword.value})                
       })
-      console.log(rawResponse);
+  
       if(rawResponse.status == 204){
         //const content = await rawResponse.json();
         window.location.replace('login.html');
@@ -28,12 +28,16 @@ registrationForm.addEventListener("submit", async (ev)=>{
       else{
         errorMessage.style.display = "block";
         const content = await rawResponse.json();
-        errorMessage.innerHTML = content;
+        //console.log(content);
+        //console.log(content.errors);
+        errorMessage.innerHTML = content.errors[0].msg;
+    
     }
   
     }
     else {
       errorMessage.style.display = "block";
+      errorMessage.innerHTML = "Lösenordet matchar inte";
     }
   })
   

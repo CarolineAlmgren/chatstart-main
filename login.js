@@ -18,7 +18,7 @@
   // let registerUsername = document.getElementById("registerUsername")
   // let registerPassword = document.getElementById("registerPassword")
   // let registerPasswordCheck = document.getElementById("registerPasswordCheck")
-  // let errorMessage = document.getElementById("errorMessage")
+  let errorMessage = document.getElementById("errorMessage")
 
 
 
@@ -39,7 +39,9 @@
         //const content = await rawResponse.json();
         window.location.replace('index.html');
     }else{
-        error.style.display = "block";
+      const content = await rawResponse.json();
+      errorMessage.style.display = "block";
+      errorMessage.innerHTML = content;
     }
 
 })

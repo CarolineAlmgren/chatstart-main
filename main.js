@@ -16,6 +16,12 @@ let bigMessageResponse = await fetch(
     credentials: "include",
   }
 );
+
+if(bigMessageResponse.status == 401){
+  window.location.replace('login.html');
+}
+
+
 let bigUsersResponse = await fetch("http://localhost:3000/api/getallusers", {
   headers: {
     Accept: "application/json",
