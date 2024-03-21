@@ -1,9 +1,9 @@
 let chatInput = document.getElementById("chatInput");
 let chatButton = document.getElementById("chatButton");
 let messageForm = document.getElementById("messageForm");
-//let testBox = document.getElementById("testBox")
-//let testName = document.getElementById("testName")
 let chatMessagesHolder = document.getElementById("chatMessagesHolder");
+let chatInputHolder = document.getElementById("chat-input-holder")
+let errorMsg = document.createElement("p");
 
 let bigMessageResponse = await fetch(
   "http://localhost:3000/api/getallmessages",
@@ -16,6 +16,8 @@ let bigMessageResponse = await fetch(
     credentials: "include",
   }
 );
+
+//requireAuth körs ovan och om ingen är inloggad görs redirect till login.html
 
 if(bigMessageResponse.status == 401){
   window.location.replace('login.html');
@@ -31,7 +33,7 @@ let bigUsersResponse = await fetch("http://localhost:3000/api/getallusers", {
   credentials: "include",
 });
 
-const theUserResponse = await fetch("http://localhost:3000/hej", {
+const theUserResponse = await fetch("http://localhost:3000/api/theloggedinuser", {
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
@@ -83,19 +85,7 @@ for (let i = 0; i < messagesResponse.length; i++) {
 messageForm.addEventListener("submit", async (ev) => {
   ev.preventDefault();
 
-  const theResponse = await fetch("http://localhost:3000/hej", {
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    method: "GET",
-    credentials: "include",
-    //body: JSON.stringify({message:chatInput.value,})
-  });
-  console.log(theResponse);
-  const content = await theResponse.json();
-  console.log(content);
-  console.log(content.id);
+  errorMsg.innerHTML = "";
 
   const rawResponse = await fetch("http://localhost:3000/api/sendmessage", {
     headers: {
@@ -104,6 +94,18 @@ messageForm.addEventListener("submit", async (ev) => {
     },
     method: "POST",
     credentials: "include",
-    body: JSON.stringify({ message: chatInput.value, chatUserId: content.id }),
+    body: JSON.stringify({ message: chatInput.value, chatUserId: theLoggedInUser.id }),
   });
+  console.log(rawResponse);
+
+  if(rawResponse.status == 422){
+    let theError = await rawResponse.json()
+    console.log(theError);
+    chatInputHolder.appendChild(errorMsg)
+    errorMsg.innerHTML = theError.errors[0].msg
+    errorMsg.style.display = "block";
+
+  }
+  chatInput.value = "";
+  
 });

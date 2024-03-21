@@ -22,14 +22,11 @@ registrationForm.addEventListener("submit", async (ev)=>{
       })
   
       if(rawResponse.status == 204){
-        //const content = await rawResponse.json();
         window.location.replace('login.html');
       }
       else{
         errorMessage.style.display = "block";
         const content = await rawResponse.json();
-        //console.log(content);
-        //console.log(content.errors);
         errorMessage.innerHTML = content.errors[0].msg;
     
     }

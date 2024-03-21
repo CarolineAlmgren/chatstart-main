@@ -182,6 +182,7 @@ ul {
   background: rgba(0, 114, 135, .1);
   border: 2px solid rgba(0, 114, 135, .1);
   align-self: flex-start;
+  margin-top: 10px
 }
 
 .message-partner:after {
@@ -196,6 +197,7 @@ ul {
 
 .chat-input-holder {
   display: flex;
+  padding: 10px;
   border-top: 1px solid rgba(0, 0, 0, .1);
 }
 
@@ -209,7 +211,7 @@ ul {
   flex: 1;
   border: none;
   background: rgba(0, 0, 0, .05);
-   border-bottom: 1px solid rgba(0, 0, 0, .05);
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
 }
 
 .chat-input:focus, .message-send:focus {
